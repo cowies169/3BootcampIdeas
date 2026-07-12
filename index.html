@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Proposed Engineering Solutions | Lyan Alkassim</title>
+    <meta
+      name="description"
+      content="A local interactive engineering dashboard presentation for three proposed hardware projects."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient" aria-hidden="true">
+      <div class="scanlines"></div>
+      <div class="grid"></div>
+      <div class="flow-line flow-a"></div>
+      <div class="flow-line flow-b"></div>
+    </div>
+
+    <header class="topbar" aria-label="Presentation controls">
+      <div class="brand-lockup">
+        <span class="status-dot"></span>
+        <span class="mono">BOOTCAMP INTERVIEW DECK</span>
+      </div>
+      <nav class="section-jump" aria-label="Sections">
+        <a href="#opening">00</a>
+        <a href="#sdr">01</a>
+        <a href="#cubesat">02</a>
+        <a href="#memory">03</a>
+        <a href="#decision">04</a>
+      </nav>
+      <div class="readout mono">
+        <span id="sectionLabel">SECTION 00</span>
+        <span id="clock">LOCAL</span>
+      </div>
+    </header>
+
+    <div class="progress-track" aria-hidden="true">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <main id="deck">
+      <section class="slide opening" id="opening" data-label="SECTION 00">
+        <div class="slide-shell hero-grid">
+          <div class="hero-copy">
+            <p class="kicker mono">SYSTEM PROPOSAL / ELECTRONICS LAB</p>
+            <h1>Proposed Engineering Solutions</h1>
+            <p class="subtitle">
+              Electronics, Embedded AI, Space Systems and Spectrum Awareness
+            </p>
+            <div class="presenter">
+              <span class="mono">PRESENTER</span>
+              <strong>Lyan Alkassim</strong>
+              <em>Mechatronics Engineering Bootcamp Graduate</em>
+            </div>
+          </div>
+          <div class="instrument-stack monitor-wall" aria-hidden="true">
+            <div class="mini-panel wide crt-frame">
+              <span class="mono">TELEMETRY BUS</span>
+              <div class="trace trace-one"></div>
+            </div>
+            <div class="mini-panel crt-frame">
+              <span class="mono">RF SCAN</span>
+              <canvas id="heroScope" width="420" height="160"></canvas>
+            </div>
+            <div class="mini-panel crt-frame">
+              <span class="mono">SYSTEM HEALTH</span>
+              <div class="indicator-grid">
+                <span></span><span></span><span class="warn"></span><span></span>
+                <span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="mini-panel pixel-panel crt-frame">
+              <span class="mono">DISPLAY ARRAY</span>
+              <div class="pixel-hearts">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="mini-panel meter-panel crt-frame">
+              <span class="mono">ANALOG STATUS</span>
+              <div class="meter-row">
+                <i style="--level: 62%"></i>
+                <i style="--level: 84%"></i>
+                <i style="--level: 38%"></i>
+              </div>
+              <div class="switch-bank">
+                <b></b><b></b><b></b><b></b><b></b><b></b>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide project" id="sdr" data-label="SECTION 01">
+        <div class="slide-shell two-col">
+          <article class="copy-panel primary">
+            <div class="panel-heading">
+              <span class="project-number mono">PROJECT 01</span>
+              <span class="chip preferred">PREFERRED</span>
+            </div>
+            <h2>Portable SDR Spectrum Scanner</h2>
+            <p>
+              Wireless communication may become unreliable because users cannot
+              easily see which frequencies are crowded, clear, or affected by
+              interference.
+            </p>
+            <div class="subsection">
+              <h3>Concept</h3>
+              <p>
+                A low-cost receive-only system that scans one selected
+                radio-frequency band, measures power, identifies occupied
+                channels, and recommends a less congested channel.
+              </p>
+            </div>
+            <div class="flow mono">
+              <span>Antenna</span><span>RTL-SDR</span><span>Laptop / Pi</span>
+              <span>FFT + PSD</span><span>Occupancy</span><span>Visual Result</span>
+            </div>
+            <div class="component-list">
+              <span>RTL-SDR</span><span>Antenna</span><span>Python / GNU Radio</span>
+              <span>ESP32 option</span><span>OLED</span><span>Buttons</span>
+              <span>LEDs</span><span>3D enclosure</span>
+            </div>
+          </article>
+          <aside class="visual-panel spectrum-panel">
+            <div class="panel-heading">
+              <span class="mono">SIMULATED RF DEMONSTRATION</span>
+              <span class="status-pill">RX ONLY</span>
+            </div>
+            <canvas id="spectrumCanvas" width="900" height="440"></canvas>
+            <div class="recommendation">
+              <div>
+                <span class="mono">RECOMMENDED CHANNEL</span>
+                <strong>Clear window near 437.8 MHz</strong>
+              </div>
+              <span class="signal-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+            </div>
+            <p class="note mono">
+              Simulated values for interview demonstration. No external data or API.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="slide project" id="cubesat" data-label="SECTION 02">
+        <div class="slide-shell two-col reverse">
+          <aside class="visual-panel cubesat-panel">
+            <div class="panel-heading">
+              <span class="mono">CUBESAT HEALTH LOOP</span>
+              <span class="status-pill">EDU PROTOTYPE</span>
+            </div>
+            <div class="cubesat-stage" aria-label="Animated CubeSat health diagram">
+              <div class="orbit-ring"></div>
+              <div class="satellite">
+                <div class="solar left"></div>
+                <div class="bus">
+                  <span></span><span></span><span></span><span></span>
+                </div>
+                <div class="solar right"></div>
+              </div>
+              <div class="health-card battery">
+                <span class="mono">BATTERY</span><strong>7.8 V</strong>
+              </div>
+              <div class="health-card temp">
+                <span class="mono">TEMP</span><strong>31 C</strong>
+              </div>
+              <div class="health-card attitude">
+                <span class="mono">ORIENT</span><strong>STABLE</strong>
+              </div>
+              <div class="health-card power">
+                <span class="mono">POWER</span><strong>420 mW</strong>
+              </div>
+            </div>
+          </aside>
+          <article class="copy-panel">
+            <div class="panel-heading">
+              <span class="project-number mono">PROJECT 02</span>
+              <span class="chip">HARDWARE CLEAR</span>
+            </div>
+            <h2>CubeSat Health Monitoring Platform</h2>
+            <p>
+              Small satellites can suffer from overheating, low battery voltage,
+              abnormal power consumption, sensor failure, or unstable movement.
+            </p>
+            <div class="subsection">
+              <h3>Concept</h3>
+              <p>
+                A 3D-printed CubeSat-style model that monitors voltage, current,
+                temperature, orientation, and vibration, then detects abnormal
+                conditions.
+              </p>
+            </div>
+            <div class="flow mono compact-flow">
+              <span>Sensors</span><span>ESP32-S3</span><span>Algorithm</span>
+              <span>Status + Alert</span>
+            </div>
+            <div class="component-list">
+              <span>ESP32-S3</span><span>INA sensor</span><span>Temperature</span>
+              <span>IMU</span><span>Solar panel</span><span>OLED</span>
+              <span>Buzzer</span><span>Soldered power circuit</span>
+              <span>3D frame</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="slide project" id="memory" data-label="SECTION 03">
+        <div class="slide-shell two-col">
+          <article class="copy-panel">
+            <div class="panel-heading">
+              <span class="project-number mono">PROJECT 03</span>
+              <span class="chip">ARCHITECTURE FOCUS</span>
+            </div>
+            <h2>Embedded-AI Memory Performance Tester</h2>
+            <p>
+              AI models on small devices may run slowly, consume too much
+              memory, or use too much power because embedded systems have
+              limited resources.
+            </p>
+            <div class="subsection">
+              <h3>Concept</h3>
+              <p>
+                An ESP32-S3 platform that runs a small AI model and compares
+                its performance using internal RAM, PSRAM, and flash memory.
+              </p>
+            </div>
+            <div class="measure-grid">
+              <div><span class="mono">LATENCY</span><strong>ms</strong></div>
+              <div><span class="mono">MEMORY</span><strong>KB</strong></div>
+              <div><span class="mono">POWER</span><strong>mW</strong></div>
+              <div><span class="mono">ACCURACY</span><strong>%</strong></div>
+            </div>
+            <div class="component-list">
+              <span>ESP32-S3 + PSRAM</span><span>Motion sensor</span>
+              <span>INA219</span><span>OLED</span><span>TinyML</span>
+              <span>Soldered board</span><span>3D enclosure</span>
+            </div>
+          </article>
+          <aside class="visual-panel memory-panel">
+            <div class="panel-heading">
+              <span class="mono">SIMULATED MEMORY BENCH</span>
+              <span class="status-pill">LOCAL MODEL</span>
+            </div>
+            <div class="memory-diagram">
+              <div class="node cpu">CPU<br /><span>ESP32-S3</span></div>
+              <div class="node ram">RAM<br /><span>Fast</span></div>
+              <div class="node psram">PSRAM<br /><span>Large</span></div>
+              <div class="node flash">FLASH<br /><span>Storage</span></div>
+              <span class="packet p1"></span>
+              <span class="packet p2"></span>
+              <span class="packet p3"></span>
+            </div>
+            <div class="chart" aria-label="Simulated comparison chart">
+              <div style="--bar: 88%">
+                <span class="mono">RAM</span><i></i><strong>18 ms</strong>
+              </div>
+              <div style="--bar: 62%">
+                <span class="mono">PSRAM</span><i></i><strong>27 ms</strong>
+              </div>
+              <div style="--bar: 39%">
+                <span class="mono">FLASH</span><i></i><strong>43 ms</strong>
+              </div>
+            </div>
+            <p class="note mono">Simulated values: lower latency is better.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="slide final" id="decision" data-label="SECTION 04">
+        <div class="slide-shell final-layout">
+          <div class="final-header">
+            <p class="kicker mono">PROJECT RECAP</p>
+            <h2>Project Recap</h2>
+          </div>
+          <div class="comparison-table" role="table" aria-label="Project comparison">
+            <div class="table-row head" role="row">
+              <div role="columnheader">Project</div>
+              <div role="columnheader">Strongest Fit</div>
+              <div role="columnheader">Interview Signal</div>
+            </div>
+            <div class="table-row highlight" role="row">
+              <div role="cell"><strong>SDR scanner</strong><span class="chip preferred">Preferred</span></div>
+              <div role="cell">Defense and communications</div>
+              <div role="cell">RF awareness, signal analysis, expandable AI classification</div>
+            </div>
+            <div class="table-row" role="row">
+              <div role="cell"><strong>CubeSat monitor</strong></div>
+              <div role="cell">Clearest hardware prototype</div>
+              <div role="cell">Telemetry, sensors, soldering, 3D printed structure</div>
+            </div>
+            <div class="table-row" role="row">
+              <div role="cell"><strong>AI memory tester</strong></div>
+              <div role="cell">Computer architecture focus</div>
+              <div role="cell">TinyML, memory hierarchy, embedded measurement</div>
+            </div>
+          </div>
+          <blockquote>
+            My goal is to choose a project that is technically achievable while
+            allowing further development in embedded AI, electronics, soldering,
+            and mechanical design.
+          </blockquote>
+        </div>
+      </section>
+    </main>
+
+    <div class="keyboard-hint mono" aria-hidden="true">
+      <span>ARROWS</span>
+      <span>NAVIGATE</span>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
